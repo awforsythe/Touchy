@@ -1,0 +1,13 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "4.25",
+	"Category": "",
+	"Description": "Example project demonstrating a simple first-person interaction system",
+	"Modules": [
+		{
+			"Name": "TouchyCore",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
