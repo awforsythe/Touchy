@@ -5,6 +5,7 @@
 #include "InteractionTrace.h"
 #include "InteractibleActor.h"
 #include "Interactible.h"
+#include "InteractionComponent.h"
 
 ATouchyPawn::ATouchyPawn(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer.DoNotCreateDefaultSubobject(ADefaultPawn::MeshComponentName))
@@ -53,5 +54,16 @@ void ATouchyPawn::OnUsePressed()
 	if (Actor && Actor->Implements<UInteractible>())
 	{
 		IInteractible::Execute_Used(Actor, this);
+	}
+
+	// 3. Composition (UInteractionComponent)
+	if (Actor)
+	{
+		TInlineComponentArray<UInteractionComponent*> Components;
+		Actor->GetComponents(Components);
+		for (UInteractionComponent* Component : Components)
+		{
+			Component->Used(this);
+		}
 	}
 }
