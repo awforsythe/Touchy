@@ -18,4 +18,10 @@ public:
 public:
 	ATouchyPawn(const FObjectInitializer& ObjectInitializer);
 	virtual void Tick(float DeltaSeconds) override;
+
+protected:
+	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
+
+private:
+	UFUNCTION() void OnUsePressed();
 };

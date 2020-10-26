@@ -1,5 +1,6 @@
 #include "TouchyPawn.h"
 
+#include "Log.h"
 #include "TouchyTypes.h"
 #include "InteractionTrace.h"
 
@@ -21,5 +22,26 @@ void ATouchyPawn::Tick(float DeltaSeconds)
 		}
 
 		InteractionTrace->Update(GetWorld(), this, ECC_Interaction);
+	}
+}
+
+void ATouchyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+{
+	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	PlayerInputComponent->BindAction(TEXT("Use"), IE_Pressed, this, &ATouchyPawn::OnUsePressed);
+}
+
+void ATouchyPawn::OnUsePressed()
+{
+	// Check the InteractionTrace to find the actor in the center of our view (if any)
+	AActor* Actor = (InteractionTrace && InteractionTrace->Hit.bBlockingHit) ? InteractionTrace->Hit.Actor.Get() : nullptr;
+	if (Actor)
+	{
+		UE_LOG(LogTouchyCore, Log, TEXT("Use: '%s'"), *Actor->GetName());
+	}
+	else
+	{
+		UE_LOG(LogTouchyCore, Log, TEXT("Use: <no actor>"));
 	}
 }
