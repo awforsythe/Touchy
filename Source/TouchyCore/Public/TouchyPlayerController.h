@@ -11,5 +11,13 @@ class ATouchyPlayerController : public APlayerController
 	GENERATED_BODY()
 
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Interaction")
+	float InteractionTraceDistance;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Interaction")
+	bool bInteractionDebugDraw;
+
+public:
 	ATouchyPlayerController(const FObjectInitializer& ObjectInitializer);
+	virtual void PlayerTick(float DeltaTime);
 };
