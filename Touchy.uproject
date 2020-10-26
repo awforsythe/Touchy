@@ -8,6 +8,12 @@
 			"Name": "TouchyCore",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "TouchyTestActors",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": ["TouchyCore"]
 		}
 	]
 }

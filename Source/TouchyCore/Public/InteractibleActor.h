@@ -10,7 +10,7 @@
 	collision primitives that block the 'Interaction' trace channel.
 */
 UCLASS()
-class AInteractibleActor : public AActor
+class TOUCHYCORE_API AInteractibleActor : public AActor
 {
 	GENERATED_BODY()
 

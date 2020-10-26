@@ -6,6 +6,6 @@ public class TouchyEditorTarget : TargetRules
 	{
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
-		ExtraModuleNames.AddRange( new string[] { "TouchyCore" } );
+		ExtraModuleNames.AddRange( new string[] { "TouchyCore", "TouchyTestActors" } );
 	}
 }

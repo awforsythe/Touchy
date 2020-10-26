@@ -10,7 +10,7 @@
 	interface should also block the 'Interactible' trace channel.
 */
 UINTERFACE()
-class UInteractible : public UInterface
+class TOUCHYCORE_API UInteractible : public UInterface
 {
 	GENERATED_BODY()
 };
@@ -19,7 +19,7 @@ class UInteractible : public UInterface
 	virtual Used_Implementation function; Blueprint classes will receive a Used
 	Blueprint event.
 */
-class IInteractible
+class TOUCHYCORE_API IInteractible
 {
 	GENERATED_BODY()
 

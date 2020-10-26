@@ -10,7 +10,7 @@
 	also block the 'Interactible' collision trace channel.
 */
 UCLASS(meta=(BlueprintSpawnableComponent))
-class UInteractionComponent : public UActorComponent
+class TOUCHYCORE_API UInteractionComponent : public UActorComponent
 {
 	GENERATED_BODY()
 

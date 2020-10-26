@@ -6,6 +6,6 @@ public class TouchyTarget : TargetRules
 	{
 		Type = TargetType.Game;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
-		ExtraModuleNames.AddRange( new string[] { "TouchyCore" } );
+		ExtraModuleNames.AddRange( new string[] { "TouchyCore", "TouchyTestActors" } );
 	}
 }
