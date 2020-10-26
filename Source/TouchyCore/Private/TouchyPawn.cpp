@@ -3,6 +3,7 @@
 #include "Log.h"
 #include "TouchyTypes.h"
 #include "InteractionTrace.h"
+#include "InteractibleActor.h"
 
 ATouchyPawn::ATouchyPawn(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer.DoNotCreateDefaultSubobject(ADefaultPawn::MeshComponentName))
@@ -36,12 +37,9 @@ void ATouchyPawn::OnUsePressed()
 {
 	// Check the InteractionTrace to find the actor in the center of our view (if any)
 	AActor* Actor = (InteractionTrace && InteractionTrace->Hit.bBlockingHit) ? InteractionTrace->Hit.Actor.Get() : nullptr;
-	if (Actor)
+	AInteractibleActor* InteractibleActor = Cast<AInteractibleActor>(Actor);
+	if (InteractibleActor)
 	{
-		UE_LOG(LogTouchyCore, Log, TEXT("Use: '%s'"), *Actor->GetName());
-	}
-	else
-	{
-		UE_LOG(LogTouchyCore, Log, TEXT("Use: <no actor>"));
+		InteractibleActor->Used(this);
 	}
 }
