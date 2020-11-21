@@ -8,7 +8,7 @@ for /f "tokens=1,* delims= " %%a in ("%*") do set REMAIN=%%b
 
 set UCC_CMD="%UE4EDITOR_CMD_EXE%" "%UPROJECT_PATH%" -run=%COMMANDLET% %REMAIN%
 echo %UCC_CMD%
-start "" %UCC_CMD%
+call %UCC_CMD%
 goto done
 
 :no_commandlet
